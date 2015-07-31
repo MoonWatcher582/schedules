@@ -1,0 +1,1 @@
+Currently just a schedule for my Fall 2014 semester, because I wanted to add my work shifts and club meetings and there is apparently no webapp capable of this. Will eventually be turned into my personal website, and the basis for some schedule-builder webapp.

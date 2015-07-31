@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> Eric Bronner - Schedule </title>
+		
+		<link rel="stylesheet" href="style.css">	
+
+		<script 
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+		</script>
+
+		<script
+			src="timeset.js">
+		</script>
+
+		<script>
+			var times = generate_times();
+			var sun = [{"start": "15:00", "end": "19:00", "cname": "CAVE Shift", "room": "HILL-250/252", "time": "3:00pm - 7:00pm", "campus": "Busch"}]; 
+			var mon = [{"start": "11:30", "end": "12:50", "cname": "Philosophy & the Law", "room": "Campbell Hall A3", "time": "11:30am - 12:50pm", "campus": "CAC"},
+					{"start": "15:00", "end": "17:00", "cname": "CAVE Shift", "room": "HILL-250/252", "time": "3:00pm - 5:00pm", "campus": "Busch"}, 
+					{"start": "19:00", "end": "21:00", "cname": "CAVE Shift", "room": "HILL-250/252", "time": "7:00pm - 9:00pm", "campus": "Busch"}];
+			var tue = [{"start": "13:40", "end": "15:00", "cname": "Intro to AI", "room": "LCB-110", "time": "1:40pm - 3:00pm", "campus": "Livingston"}, 
+					{"start": "15:10", "end": "16:05", "cname": "Intro to AI Recitation", "room": "LSH-B269", "time": "3:10pm - 4:05pm", "campus": "Livingston"}, 
+					{"start": "20:10", "end": "21:05", "cname": "Intro to CS TA Shift", "room": "ARC-203", "time": "8:10pm - 9:05pm", "campus": "Busch"}]; 
+			var wed = [{"start": "11:30", "end": "12:50", "cname": "Intro to Logic", "room": "Scott Hall 121", "time": "11:30am - 12:50am", "campus": "CAC"}, 
+					{"start": "13:40", "end": "16:40", "cname": "Design & Analysis of Algorithms", "room": "TIL-242", "time": "1:40pm - 4:40pm", "campus": "Livingston"}, 
+					{"start": "18:00", "end": "20:00", "cname": "COGS Meeting", "room": "HILL-248", "time": "6:00pm - 8:00pm", "campus": "Busch"},
+					{"start": "21:00", "end": "23:00", "cname": "USACS Meeting", "room": "HILL-250", "time": "9:00pm - 11:00pm", "campus": "Busch"}]; 
+			var thurs = [{"start": "11:30", "end": "12:50", "cname": "Philosophy & the Law", "room": "Campbell Hall A3", "time": "11:30am - 12:50am", "campus": "CAC"}, 
+					{"start": "13:40", "end": "15:00", "cname": "Intro to AI", "room": "LCB-110", "time": "1:40pm - 3:00pm", "campus": "Livingston"}, 
+					{"start": "21:00", "end": "23:00", "cname": "CAVE Shift", "room": "HILL-250/252", "time": "9:00pm - 11:00pm", "campus": "Busch"}]; 
+			var fri = [{"start": "13:10", "end": "14:30", "cname": "Intro to Logic", "room": "Scott Hall 121", "time": "1:10pm - 2:30pm", "campus": "CAC"}, 
+					{"start": "15:00", "end": "18:00", "cname": "CAVE Shift - Code Red", "room": "HILL-250/252", "time": "3:00pm - 6:00pm", "campus": "Busch"}]; 
+			var sat = []; 
+				
+			$("document").ready(function(){
+				var str = "";
+				for(i = 0; i < times.length; i++){
+					str += format_item(times[i], 100);
+				}
+				$("#times").html(str);
+				str = "";
+				for(i = 0; i < sun.length; i++){
+					str += format_item(sun[i], 200);
+				}
+				$("#Sunday").html(str);
+				str = "";
+				for(i = 0; i < mon.length; i++){
+					str += format_item(mon[i], 200);
+				}
+				$("#Monday").html(str);
+				str = "";
+				for(i = 0; i < tue.length; i++){
+					str += format_item(tue[i], 200);
+				}
+				$("#Tuesday").html(str);
+				str = "";
+				for(i = 0; i < wed.length; i++){
+					str += format_item(wed[i], 200);
+				}
+				$("#Wednesday").html(str);
+				str = "";
+				for(i = 0; i < thurs.length; i++){
+					str += format_item(thurs[i], 200);
+				}
+				$("#Thursday").html(str);
+				str = "";
+				for(i = 0; i < fri.length; i++){
+					str += format_item(fri[i], 200);
+				}
+				$("#Friday").html(str);
+				str = "";
+				for(i = 0; i < sat.length; i++){
+					str += format_item(sat[i], 200);
+				}
+				$("#Saturday").html(str);
+
+				//now for the slide bar:
+				$('.pulldown').click(function(){
+					$('.panel').slideToggle('slow');
+				});
+
+				//button
+				$('.button').mouseenter(function(){
+					$(this).fadeTo('fast', 1);
+				});
+				$('.button').mouseleave(function(){
+					$(this).fadeTo('fast', 0.5);
+				});
+			});
+		</script>
+	</head>
+	<body>	
+		<div class="more"><div class="panel">
+		<p><a href="james.html"><div class="button"><strong>James</strong></div></a> | <a href="josh.html"><div class="button"><strong>Josh</strong></div></a> | <a href="krasnov.html"><div class="button"><strong>Krasnov</strong></div></a> | <a href="joey.html"><div class="button"><strong>Joey</strong></div></a></p>
+		<br />
+		<br />
+		</div>
+		<p class="slide"><div class="pulldown">See More Schedules!</div></p>
+		</div>
+		<hr />
+
+		<br />
+		<h1>Hackathons I'll be Attending:</h1>
+		<ul>
+			<li>9/20-9/21: Unhackathon @ Stony Brook University</li>
+			<li>10/11-10/12: HackRU</li>
+			<li>10/18-10/19: HackNY</li>
+		</ul>
+
+		<h1> Eric's Fall 2014 Schedule </h1>
+		<div id="container" style="width: 1500px; height: 1200px; position: relative;">
+			<div class="day" id="times"></div>
+			<div class="day" id="Sunday"></div>
+			<div class="day" id="Monday"></div>
+			<div class="day" id="Tuesday"></div>
+			<div class="day" id="Wednesday"></div>
+			<div class="day" id="Thursday"></div>
+			<div class="day" id="Friday"></div>
+			<div class="day" id="Saturday"></div>
+		</div>
+	</body>
+</html>
