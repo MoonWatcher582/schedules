@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> Eric Bronner - Schedule </title>
+		
+		<link rel="stylesheet" href="style.css">	
+
+		<script 
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+		</script>
+
+		<script
+			src="timeset.js">
+		</script>
+
+		<script>
+			var times = generate_times();
+			var sun = []; 
+			var mon = [
+					{"start": "10:35", "end": "11:30", "cname": "Computer Security", "room": "TIL-251", "time": "10:35am - 11:30am", "campus": "Livingston"},
+					{"start": "12:00", "end": "13:20", "cname": "Computer Security", "room": "TIL-226", "time": "12:00pm - 1:20pm", "campus": "Livingston"},
+					{"start": "13:40", "end": "15:00", "cname": "Brain Sci & Comp Sci", "room": "SEC-209", "time": "1:40pm - 3:00pm", "campus": "Busch"}],
+					{"start": "15:00", "end": "17:00", "cname": "CAVE Shift", "room": "HILL-250/252", "time": "3:00pm - 5:00pm", "campus": "Busch"}],
+					{"start": "18:10", "end": "19:30", "cname": "19th Century Philosophy", "room": "FH-B6", "time": "6:10pm - 7:30pm", "campus": "CAC"}
+			];
+			var tue = [];
+			var wed = [
+					{"start": "13:40", "end": "15:00", "cname": "Brain Sci & Comp Sci", "room": "SEC-209", "time": "1:40pm - 3:00pm", "campus": "Busch"}],
+					{"start": "15:00", "end": "17:00", "cname": "CAVE Shift", "room": "HILL-250/252", "time": "3:00pm - 5:00pm", "campus": "Busch"}],
+					{"start": "18:10", "end": "19:30", "cname": "19th Century Philosophy", "room": "FH-B6", "time": "6:10pm - 7:30pm", "campus": "CAC"}
+			]; 
+			var thurs = [
+					{"start": "12:00", "end": "13:20", "cname": "Computer Security", "room": "TIL-226", "time": "12:00pm - 1:20pm", "campus": "Livingston"}
+			];
+			var fri = [
+					{"start": "13:00", "end": "17:00", "cname": "Code Red", "room": "HILL-250/252", "time": "1:00pm - 5:00pm", "campus": "Busch"}
+			];
+			var sat = []; 
+				
+			$("document").ready(function(){
+				var str = "";
+				for(i = 0; i < times.length; i++){
+					str += format_item(times[i], 100);
+				}
+				$("#times").html(str);
+				str = "";
+				for(i = 0; i < sun.length; i++){
+					str += format_item(sun[i], 200);
+				}
+				$("#Sunday").html(str);
+				str = "";
+				for(i = 0; i < mon.length; i++){
+					str += format_item(mon[i], 200);
+				}
+				$("#Monday").html(str);
+				str = "";
+				for(i = 0; i < tue.length; i++){
+					str += format_item(tue[i], 200);
+				}
+				$("#Tuesday").html(str);
+				str = "";
+				for(i = 0; i < wed.length; i++){
+					str += format_item(wed[i], 200);
+				}
+				$("#Wednesday").html(str);
+				str = "";
+				for(i = 0; i < thurs.length; i++){
+					str += format_item(thurs[i], 200);
+				}
+				$("#Thursday").html(str);
+				str = "";
+				for(i = 0; i < fri.length; i++){
+					str += format_item(fri[i], 200);
+				}
+				$("#Friday").html(str);
+				str = "";
+				for(i = 0; i < sat.length; i++){
+					str += format_item(sat[i], 200);
+				}
+				$("#Saturday").html(str);
+
+				//now for the slide bar:
+				$('.pulldown').click(function(){
+					$('.panel').slideToggle('slow');
+				});
+
+				//button
+				$('.button').mouseenter(function(){
+					$(this).fadeTo('fast', 1);
+				});
+				$('.button').mouseleave(function(){
+					$(this).fadeTo('fast', 0.5);
+				});
+			});
+		</script>
+	</head>
+	<body>	
+		<h1> Eric's Spring 2016 Schedule </h1>
+		<div id="container" style="width: 1500px; height: 1200px; position: relative;">
+			<div class="day" id="times"></div>
+			<div class="day" id="Sunday"></div>
+			<div class="day" id="Monday"></div>
+			<div class="day" id="Tuesday"></div>
+			<div class="day" id="Wednesday"></div>
+			<div class="day" id="Thursday"></div>
+			<div class="day" id="Friday"></div>
+			<div class="day" id="Saturday"></div>
+		</div>
+	</body>
+</html>
